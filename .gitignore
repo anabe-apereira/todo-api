@@ -1,0 +1,44 @@
+# =============================================
+# Ambiente virtual Python e configurações
+# =============================================
+
+# Pastas de ambiente virtual
+.venv/
+venv/
+
+# Arquivos de configuração local/sensíveis
+.env
+*.local
+.env.local
+
+# =============================================
+# Python - Arquivos temporários e bytecode
+# =============================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.py.class
+
+# =============================================
+# IDEs e editores
+# =============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+.DS_Store (Mac)
+
+# =============================================
+# Outros
+# =============================================
+# Logs e bancos de dados locais
+*.log
+*.sqlite
+*.db
+
+# Diretórios de build/distribuição
+build/
+dist/
+*.egg-info/
