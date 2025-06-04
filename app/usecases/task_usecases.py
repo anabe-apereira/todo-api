@@ -6,9 +6,10 @@ class TaskUseCases:
         self.repository = repository
 
     def create_task(self, task: Task) -> Task:
-        # Validações de negócio (ex: título não pode ser vazio)
-        if not task.title:
-            raise ValueError("Title cannot be empty")
+        """
+        Cria uma nova tarefa a partir de um objeto Task já validado.
+        A validação do título deve ser feita antes de criar o objeto Task.
+        """
         return self.repository.create(task)
 
     def get_task_by_id(self, task_id: int) -> Task | None:
