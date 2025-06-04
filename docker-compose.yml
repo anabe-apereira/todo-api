@@ -2,15 +2,24 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: todo-api
+    restart: unless-stopped
     ports:
       - "8000:8000"
     volumes:
-      - .:/app                         # Mapeia o código fonte
-      - sqlite_data:/app/sqlite_db     # Volume persistente para o SQLite
+      - ./app/sqlite_db:/app/sqlite_db
     environment:
-      - PYTHONUNBUFFERED=1             # Melhor log do Python
-      - TESTING=False                  # Ambiente de desenvolvimento
+      - DATABASE_URL=sqlite:////app/sqlite_db/tasks.db
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 volumes:
-  sqlite_data:                         # Volume nomeado para persistência
+  sqlite_data:
+    driver: local

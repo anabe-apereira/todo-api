@@ -1,6 +1,17 @@
-.git
-__pycache__
+**/__pycache__
 *.pyc
-venv
+*.pyo
+*.pyd
 .env
+.venv
+venv/
 *.sqlite
+*.db
+.DS_Store
+.git
+.gitignore
+.coverage
+/tests/                # Opcional: testes não são necessários em produção
+/app/sqlite_db/        # Dados persistentes devem ser volumes
+test.db
+todo.db
