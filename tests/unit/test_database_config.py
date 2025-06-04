@@ -19,10 +19,16 @@ def test_session_creation():
     session.close()
 
 def test_session_autocommit_and_autoflush():
-    """Testa se as configurações de autocommit e autoflush estão corretas"""
-    session = SessionLocal()
-    # Verifica as configurações do sessionmaker
-    assert session.autoflush is False
-    # A forma correta de verificar autocommit é através do sessionmaker
-    assert session._autocommit is False  # Atributo interno
-    session.close()
+    # Testa a sessão criada pela fábrica de sessões
+    db = SessionLocal()
+    
+    # Verifica as configurações padrão do SQLAlchemy 2.0+
+    assert db.autocommit is False  # autocommit não existe mais como atributo direto
+    assert db.autoflush is True  # Valor padrão recomendado
+    
+    # Verifica se é realmente uma sessão do SQLAlchemy
+    assert isinstance(db, pytest.Session)
+    
+    # Testa o fechamento da sessão
+    db.close()
+    assert db.closed is True

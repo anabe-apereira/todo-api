@@ -12,3 +12,10 @@ def test_database_connection():
     session = SessionLocal()
     assert session is not None
     session.close()
+    
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
