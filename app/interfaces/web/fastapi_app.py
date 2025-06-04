@@ -7,9 +7,12 @@ from app.interfaces.http.controllers import router
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Todo API",
-    description="API for managing tasks",
-    version="1.0.0"
+    title="ToDo API",
+    description="API para gerenciamento de tarefas.",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
 )
 
 app.include_router(router)
