@@ -1,3 +1,7 @@
+"""
+Classe abstrata que atua como um contrato que define operações obrigatórias sobre tarefas
+
+"""
 from abc import ABC, abstractmethod
 from app.domain.entities import Task
 

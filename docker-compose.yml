@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: todo-api
@@ -10,7 +10,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./app/sqlite_db:/app/sqlite_db
+      - ./app/sqlite_db:/app/sqlite_db  # Bind mount direto
     environment:
       - DATABASE_URL=sqlite:////app/sqlite_db/tasks.db
       - PYTHONUNBUFFERED=1
@@ -19,7 +19,5 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    command: "uvicorn app.interfaces.web.fastapi_app:app --host 0.0.0.0 --port 8000"
 
-volumes:
-  sqlite_data:
-    driver: local

@@ -2,7 +2,6 @@ from sqlalchemy.orm import Session
 from app.domain.entities import Task
 from app.infra.database.models import TaskModel
 
-
 class SQLiteTaskRepository:
     def __init__(self, db: Session):
         self.db = db

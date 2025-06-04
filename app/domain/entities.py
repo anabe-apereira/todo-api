@@ -1,3 +1,8 @@
+"""
+Classe de entidade que representa regras de negócio fundamentais(validação do tipo e qtde mín de caracteres)
+
+"""
+
 from pydantic import BaseModel, Field, field_validator
 from typing import Optional, Any
 

@@ -1,4 +1,8 @@
-# app/interfaces/web/controllers.py
+"""
+Classe atua como interface adapter da camada HTTP, resposável pela orquestração da entrada e saída dos dados
+comunica-se só com a classe task_usecases -> dessa forma se mantém independete da infra
+
+"""
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List

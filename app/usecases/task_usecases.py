@@ -1,3 +1,4 @@
+#Casos de uso(CRUD) ; nessa classe temos a lógica de aplicação
 from app.domain.entities import Task
 from app.domain.repositories import TaskRepository
 
@@ -6,10 +7,6 @@ class TaskUseCases:
         self.repository = repository
 
     def create_task(self, task: Task) -> Task:
-        """
-        Cria uma nova tarefa a partir de um objeto Task já validado.
-        A validação do título deve ser feita antes de criar o objeto Task.
-        """
         return self.repository.create(task)
 
     def get_task_by_id(self, task_id: int) -> Task | None:

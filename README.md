@@ -18,7 +18,7 @@ API RESTful para gerenciamento de tarefas, desenvolvida em **Python** com **Fast
 
 - [Python 3.10+](https://www.python.org/)
 - [Pip](https://pip.pypa.io/)
-- [Docker](https://www.docker.com/) (opcional, mas recomendado)
+- [Docker](https://www.docker.com/)
 - [Git](https://git-scm.com/)
 
 ---
@@ -28,7 +28,7 @@ API RESTful para gerenciamento de tarefas, desenvolvida em **Python** com **Fast
 ### 1️⃣ Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/todo-api.git
+git https://github.com/anabe-apereira/todo-api
 cd todo-api
 
 ### 2️⃣ Crie um ambiente virtual
@@ -50,19 +50,25 @@ uvicorn app.interfaces.web.fastapi_app:app --reload
 ### 5️⃣ Acesse no navegador
 Swagger UI 👉 http://127.0.0.1:8000/docs
 
-###🐳 Executando com Docker
+###🐳 Executando com Docker - Teste de Persistência
 
 #### 1️⃣ Build da imagem
-docker build -t todo-api .
+docker-compose up -d --build
 
-#### 2️⃣ Rode o container
-docker run -d --name todo-api -p 8000:8000 todo-api
+#### 2️⃣ Verifica se o container está rodando
+docker-compose ps
 
 #### 3️⃣ Acesse no navegador
 Swagger UI 👉 http://localhost:8000/docs
 
-#### 4️⃣ Parar o container
-docker stop todo-api
+#### 4️⃣ Restartar o container
+docker-compose restart
+
+#### 5️⃣ Atualizar o Swagger + Consultar Alterações feitas
+F5 na página do Swagger
+
+### 5️⃣ Reiniciar o container
+docker-compose up -d
 
 ##🧪 Executando os Testes
 pytest --cov=app --cov-report=term-missing --cov-fail-under=80
