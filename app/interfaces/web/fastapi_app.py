@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, RedirectResponse
 from app.infra.database.config import engine
 from app.infra.database.models import Base
 from app.interfaces.http.controllers import router
@@ -19,4 +19,5 @@ app.include_router(router)
 
 @app.get("/", response_class=PlainTextResponse)
 async def root():
-    return "ToDo API está rodando! Acesse http://127.0.0.1:8000/docs para ver a documentação."
+    return RedirectResponse(url="/docs")
+    ##return "ToDo API está rodando! Acesse http://127.0.0.1:8000/docs para ver a documentação."

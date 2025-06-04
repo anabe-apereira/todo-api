@@ -17,8 +17,8 @@ class TaskController:
             "/tasks",
             response_model=Task,
             status_code=status.HTTP_201_CREATED,
-            summary="Create a new task",
-            description="Creates a new task with title, description and completion status"
+            summary="Criação de nova tarefa",
+            description="Cria uma nova tarefa com título, descrição e status de conclusão."
         )
         async def create_task(
             task: Task,
@@ -35,7 +35,7 @@ class TaskController:
         @self.router.get(
             "/tasks/{task_id}",
             response_model=Task,
-            summary="Get a task by ID",
+            summary="Obter uma tarefa pelo ID",
             responses={
                 404: {"description": "Task not found"}
             }
@@ -55,7 +55,7 @@ class TaskController:
         @self.router.get(
             "/tasks",
             response_model=List[Task],
-            summary="List all tasks"
+            summary="Listar todas as tarefas"
         )
         async def list_tasks(
             usecases: TaskUseCases = Depends(self._get_usecases)
@@ -65,7 +65,7 @@ class TaskController:
         @self.router.put(
             "/tasks/{task_id}",
             response_model=Task,
-            summary="Update a task",
+            summary="Atualizar uma tarefa",
             responses={
                 404: {"description": "Task not found"}
             }
@@ -86,7 +86,7 @@ class TaskController:
         @self.router.delete(
             "/tasks/{task_id}",
             status_code=status.HTTP_204_NO_CONTENT,
-            summary="Delete a task",
+            summary="Excluir uma tarefa",
             responses={
                 404: {"description": "Task not found"}
             }
