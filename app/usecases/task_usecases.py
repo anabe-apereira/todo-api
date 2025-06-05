@@ -1,4 +1,9 @@
-#Casos de uso(CRUD) ; nessa classe temos a lógica de aplicação
+"""
+Essa classe representa a lógica principal da aplicação, orquestrando as operações sobre tarefas ao delegar 
+a persistência para o repositório,
+ garantindo um ponto centralizado e claro para executar as regras de negócio.
+
+"""
 from app.domain.entities import Task
 from app.domain.repositories import TaskRepository
 

@@ -1,3 +1,8 @@
+"""
+Classe responsável por implementar o repositório de tarefas com SQLite,
+ conectando o domínio à infraestrutura e garantindo que a lógica de negócios permaneça independente da persistência.
+
+"""
 from sqlalchemy.orm import Session
 from app.domain.entities import Task
 from app.infra.database.models import TaskModel

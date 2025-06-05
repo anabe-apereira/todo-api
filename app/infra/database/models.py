@@ -1,3 +1,9 @@
+"""
+Classe que representa o modelo relacional da entidade Task no banco de dados,
+ sendo responsável pela estrutura e persistência das informações
+
+"""
+
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.orm import declarative_base
 

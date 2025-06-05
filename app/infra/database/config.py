@@ -1,3 +1,8 @@
+"""
+Classe que gerencia a configuração e a conexão com o banco de dados, 
+atuando como uma dependência de infraestrutura essencial para persistência de dados.
+
+"""
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

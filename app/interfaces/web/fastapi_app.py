@@ -1,3 +1,8 @@
+"""
+Responsável por gerenciar a persistência das tarefas isolando os detalhes do banco de dados e 
+fornecendo uma interface clara para a camada de negócio.
+
+"""
 from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse, RedirectResponse
 from app.infra.database.config import engine
