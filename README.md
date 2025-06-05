@@ -49,42 +49,43 @@ uvicorn app.interfaces.web.fastapi_app:app --reload
 ### 5️⃣ Acesse no navegador
 Swagger UI 👉 http://127.0.0.1:8000/docs
 
-###🐳 Executando com Docker - Teste de Persistência
+## 🐳 Executando com Docker - Teste de Persistência
 
-#### 1️⃣ Build da imagem
+### 1️⃣ Build da imagem
 docker-compose up -d --build
 
-#### 2️⃣ Verifica se o container está rodando
+### 2️⃣ Verifica se o container está rodando
 docker-compose ps
 
-#### 3️⃣ Acesse no navegador
+### 3️⃣ Acesse no navegador
 Swagger UI 👉 http://localhost:8000/docs
 
-#### 4️⃣ Restartar o container
+### 4️⃣ Restartar o container
 docker-compose restart
 
-#### 5️⃣ Atualizar o Swagger + Consultar Alterações feitas
+### 5️⃣ Atualizar o Swagger + Consultar Alterações feitas
 F5 na página do Swagger UI 
 
-#### 6️⃣ Pegar ID do docker
+### 6️⃣ Pegar ID do docker
 docker ps -a
 
-#### 7️⃣ Parar o container
+### 7️⃣ Parar o container
 docker stop <container-id>
 
-#### 8️⃣ Ligar o container novamente
+### 8️⃣ Ligar o container novamente
 docker-compose up 
 
-#### 7️⃣ Atualizar o Swagger + Consultar Alterações feitas
+### 7️⃣ Atualizar o Swagger + Consultar Alterações feitas
 F5 na página do Swagger UI 
 
-#### 9️⃣ Encerrar o container e remover volumes (apaga dados e alterações)
+### 9️⃣ Encerrar o container e remover volumes (apaga dados e alterações)
 docker-compose down
 
-##🧪 Executando os Testes
+## 🧪 Executando os Testes
+
 pytest --cov=app --cov-report=term-missing --cov-fail-under=80
 
-##🔗 Endpoints Principais
+## 🔗 Endpoints Principais
 
 | Método | Endpoint             | Descrição               |
 | ------ | -------------------- | ----------------------- |
@@ -94,7 +95,7 @@ pytest --cov=app --cov-report=term-missing --cov-fail-under=80
 | PUT    | `/api/v1/tasks/{id}` | Atualizar uma tarefa    |
 | DELETE | `/api/v1/tasks/{id}` | Deletar uma tarefa      |
 
-##💻 Arquitetura
+## 💻 Arquitetura
 O projeto segue os princípios da Clean Architecture, separado em:
 
 domain — Entidades e contratos
@@ -106,7 +107,7 @@ infra — Banco de dados e repositórios
 interfaces — Interface web (FastAPI)
            — Interface http (Swagger UI )
 
-##🗄️ Por que escolhi o SQLite?
+## 🗄️ Por que escolhi o SQLite?
 Para este projeto, optei pelo uso do SQLite como banco de dados devido a alguns fatores estratégicos e técnicos que atendem bem à proposta da aplicação:
 
 🔧 Familiaridade e Facilidade de Uso:
