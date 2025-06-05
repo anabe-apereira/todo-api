@@ -27,7 +27,6 @@ API RESTful para gerenciamento de tarefas, desenvolvida em **Python** com **Fast
 
 ### 1️⃣ Clone o repositório
 
-```bash
 git https://github.com/anabe-apereira/todo-api
 cd todo-api
 
