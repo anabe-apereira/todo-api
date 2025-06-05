@@ -110,16 +110,22 @@ interfaces — Interface web (FastAPI)
 ##🗄️ Por que escolhi o SQLite?
 Para este projeto, optei pelo uso do SQLite como banco de dados devido a alguns fatores estratégicos e técnicos que atendem bem à proposta da aplicação:
 
-🔧 Familiaridade e Facilidade de Uso: Por ser um banco de dados relacional amplamente conhecido, o SQLite oferece uma curva de aprendizado muito baixa. Já possuo um bom domínio sobre seu funcionamento, o que facilita tanto o desenvolvimento quanto a manutenção da API.
+🔧 Familiaridade e Facilidade de Uso:
+Por ser um banco de dados relacional amplamente conhecido, o SQLite oferece uma curva de aprendizado muito baixa. Já possuo um bom domínio sobre seu funcionamento, o que facilita tanto o desenvolvimento quanto a manutenção da API.
 
-⚙️ Simplicidade na Configuração: Diferente de outros bancos que exigem servidores ou serviços externos, o SQLite funciona baseado em arquivos locais, eliminando a necessidade de configuração de servidores de banco de dados. Isso agiliza a inicialização do ambiente e reduz complexidade.
+⚙️ Simplicidade na Configuração:
+Diferente de outros bancos que exigem servidores ou serviços externos, o SQLite funciona baseado em arquivos locais, eliminando a necessidade de configuração de servidores de banco de dados. Isso agiliza a inicialização do ambiente e reduz complexidade.
 
-📦 Portabilidade: O banco de dados é armazenado em um único arquivo (.db), o que permite transportar, versionar e compartilhar facilmente o projeto em diferentes ambientes de desenvolvimento.
+📦 Portabilidade:
+O banco de dados é armazenado em um único arquivo (.db), o que permite transportar, versionar e compartilhar facilmente o projeto em diferentes ambientes de desenvolvimento.
 
-🚀 Desempenho em Pequenas Aplicações: Apesar de ser leve, o SQLite é extremamente robusto para aplicações de pequeno e médio porte, além de ser capaz de lidar com múltiplas operações de leitura com eficiência.
+🚀 Desempenho em Pequenas Aplicações:
+Apesar de ser leve, o SQLite é extremamente robusto para aplicações de pequeno e médio porte, além de ser capaz de lidar com múltiplas operações de leitura com eficiência.
 
-🔒 Consistência e Confiabilidade: Como todo banco relacional, o SQLite oferece suporte completo a transações ACID (Atomicidade, Consistência, Isolamento e Durabilidade), garantindo integridade dos dados.
+🔒 Consistência e Confiabilidade:
+Como todo banco relacional, o SQLite oferece suporte completo a transações ACID (Atomicidade, Consistência, Isolamento e Durabilidade), garantindo integridade dos dados.
 
-👨‍💻 Perfeito para Desenvolvimento e Testes: Para projetos locais, APIs de pequeno porte, protótipos ou MVPs, o SQLite se destaca por ser leve, estável e de fácil integração com frameworks como o FastAPI.
+👨‍💻 Perfeito para Desenvolvimento e Testes:
+Para projetos locais, APIs de pequeno porte, protótipos ou MVPs, o SQLite se destaca por ser leve, estável e de fácil integração com frameworks como o FastAPI.
 
 ➡️ Posteriormente, caso haja necessidade de escalabilidade, a migração para bancos mais robustos, como PostgreSQL ou MySQL, pode ser feita com mínima refatoração, mantendo os princípios da arquitetura limpa adotada. 
