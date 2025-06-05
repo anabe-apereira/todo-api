@@ -1,23 +1,10 @@
 version: '3.8'
-
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: todo-api
-    restart: unless-stopped
+    build: .
     ports:
       - "8000:8000"
     volumes:
-      - ./app/sqlite_db:/app/sqlite_db  # Bind mount direto
+      - ./app/sqlite_db:/app/sqlite_db  # Persistência do SQLite
     environment:
-      - DATABASE_URL=sqlite:////app/sqlite_db/tasks.db
-      - PYTHONUNBUFFERED=1
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    command: "uvicorn app.interfaces.web.fastapi_app:app --host 0.0.0.0 --port 8000"
-
+      - DATABASE_URL=sqlite:///./sqlite_db/tasks.db  # Variável de ambiente

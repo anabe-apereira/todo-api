@@ -65,10 +65,22 @@ Swagger UI 👉 http://localhost:8000/docs
 docker-compose restart
 
 #### 5️⃣ Atualizar o Swagger + Consultar Alterações feitas
-F5 na página do Swagger
+F5 na página do Swagger UI 
 
-### 5️⃣ Reiniciar o container
-docker-compose up -d
+#### Pegar ID do docker
+docker ps -a
+
+#### 5️⃣ Parar o container
+docker stop <container-id>
+
+#### 6️⃣ Ligar o container novamente
+docker-compose up 
+
+#### 7️⃣ Atualizar o Swagger + Consultar Alterações feitas
+F5 na página do Swagger UI 
+
+#### 8️⃣ Encerrar o container e remover volumes (apaga dados e alterações)
+docker-compose down
 
 ##🧪 Executando os Testes
 pytest --cov=app --cov-report=term-missing --cov-fail-under=80
@@ -93,3 +105,4 @@ usecases — Regras de negócio
 infra — Banco de dados e repositórios
 
 interfaces — Interface web (FastAPI)
+           — Interface http (Swagger UI )     
