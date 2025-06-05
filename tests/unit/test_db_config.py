@@ -22,6 +22,3 @@ def test_database_connection():
 def test_create_tables():
     # Testa a criação de tabelas (em banco de memória)
     create_tables()
-    # Se você tiver alguma tabela específica para verificar:
-    # from app.infra.database.models import YourModel
-    # assert engine.has_table(YourModel.__tablename__)

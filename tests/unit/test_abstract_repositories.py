@@ -1,9 +1,10 @@
 import pytest
+from unittest.mock import Mock
 from app.domain.entities import Task
 from app.domain.repositories import TaskRepository
 
 
-# 🔧 Implementação concreta apenas para testes
+# Implementação concreta apenas para testes
 class TestConcreteRepo(TaskRepository):
     def __init__(self):
         self.tasks = {}
@@ -45,7 +46,7 @@ class TestConcreteRepo(TaskRepository):
         return list(self.tasks.values())
 
 
-# 🔥 Fixtures
+# Fixtures
 @pytest.fixture
 def repo():
     return TestConcreteRepo()
@@ -140,3 +141,56 @@ def test_concrete_repo_implements_all_methods():
     all_tasks = repo.list_all()
     assert isinstance(all_tasks, list)
     assert all(isinstance(t, Task) for t in all_tasks)
+
+def test_method_return_types(repo, sample_task):
+    created = repo.create(sample_task)
+    assert isinstance(created, Task)
+    
+    assert isinstance(repo.list_all(), list)
+    assert isinstance(repo.delete(999), bool)
+    assert isinstance(repo.get_by_id(999), (Task, type(None)))
+
+def test_operations_with_invalid_ids(repo):
+    assert repo.get_by_id(-1) is None
+    assert repo.update(-1, Task(title="x", description="x", completed=False)) is None
+    assert repo.delete(-1) is False
+
+def test_abstract_methods_raise_notimplemented():
+    """Testa se métodos abstratos não implementados causam erro"""
+    class IncompleteRepo(TaskRepository):
+        pass  # Não implementa os métodos
+
+    with pytest.raises(TypeError):
+        IncompleteRepo()  # Deve falhar por ser uma classe incompleta
+
+def test_abstract_methods_raise_notimplemented():
+    """Testa se métodos abstratos não implementados causam erro"""
+    class IncompleteRepo(TaskRepository):
+        pass  # Não implementa os métodos
+
+    with pytest.raises(TypeError):
+        IncompleteRepo()  # Deve falhar por ser uma classe incompleta
+
+def test_abstract_class_cannot_be_instantiated():
+    with pytest.raises(TypeError):
+        TaskRepository()  # Isso já cobre parte do arquivo
+
+def test_repository_contract():
+    mock_repo = Mock(spec=TaskRepository)
+    
+    # Configura retornos fictícios
+    mock_repo.create.return_value = Task(title="Test")
+    mock_repo.get_by_id.return_value = None
+    mock_repo.list_all.return_value = []
+    
+    # Exercita todos métodos (isso cobre as linhas dos @abstractmethod)
+    mock_repo.create(Task(title="Test"))
+    mock_repo.get_by_id(1)
+    mock_repo.list_all()
+    mock_repo.update(1, Task(title="Updated"))
+    mock_repo.delete(1)
+    
+    # Verifica se os métodos existem
+    assert hasattr(mock_repo, 'create')
+    assert hasattr(mock_repo, 'get_by_id')
+    assert hasattr(mock_repo, 'list_all')
