@@ -67,19 +67,19 @@ docker-compose restart
 #### 5️⃣ Atualizar o Swagger + Consultar Alterações feitas
 F5 na página do Swagger UI 
 
-#### Pegar ID do docker
+#### 6️⃣ Pegar ID do docker
 docker ps -a
 
-#### 5️⃣ Parar o container
+#### 7️⃣ Parar o container
 docker stop <container-id>
 
-#### 6️⃣ Ligar o container novamente
+#### 8️⃣ Ligar o container novamente
 docker-compose up 
 
 #### 7️⃣ Atualizar o Swagger + Consultar Alterações feitas
 F5 na página do Swagger UI 
 
-#### 8️⃣ Encerrar o container e remover volumes (apaga dados e alterações)
+#### 9️⃣ Encerrar o container e remover volumes (apaga dados e alterações)
 docker-compose down
 
 ##🧪 Executando os Testes
