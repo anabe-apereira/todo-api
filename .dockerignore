@@ -1,0 +1,17 @@
+**/__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+*.sqlite
+*.db
+.DS_Store
+.git
+.gitignore
+.coverage
+/tests/                      # Opcional: testes não são necessários em produção
+/app/sqlite_db/task.db       # Dados persistentes devem ser volumes
+test.db
+todo.db

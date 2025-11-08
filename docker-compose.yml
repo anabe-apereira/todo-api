@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app/sqlite_db:/app/sqlite_db  # Persistência do SQLite
+    environment:
+      - DATABASE_URL=sqlite:///./sqlite_db/tasks.db  # Variável de ambiente
