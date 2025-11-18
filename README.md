@@ -1,4 +1,5 @@
 # 📝 ToDo API - Gerenciamento de Tarefas
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/anabe-apereira/todo-api)
 
 API RESTful para gerenciamento de tarefas, desenvolvida em **Python** com **FastAPI**, seguindo os princípios da Clean Architecture.
 
